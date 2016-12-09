@@ -2,28 +2,35 @@
   <img src={{model.authorPhotoUrl}} alt={{authorName}} class="author-portrait">
   <h1 class='post-title'>{{titleize model.title}}</h1>
 
-  <div class="metadata-row">
-    <div class="metadata-item author">
-      <span class="metadata-item-label">By</span>
-      <span class="metadata-item-value">{{model.authorName}}</span>
+  {{#if newComment.isExpanded}}
+    <div class="metadata-row" onClick={{action (toggle 'newComment.isExpanded' this)}}>
+      <div class="metadata-item author">
+        <span class="metadata-item-label">By</span>
+        <span class="metadata-item-value">{{model.authorName}}</span>
+      </div>
+      <div class="metadata-item created-at">
+        <span class="metadata-item-label">Written At</span>
+        <span class="metadata-item-value">{{moment-format model.createdAt "LLL"}}</span>
+      </div>
+      {{#unless (eq model.createdAt model.updatedAt)}}
+      <div class="metadata-item updated-at">
+        <span class="metadata-item-label">Updated At</span>
+        <span class="metadata-item-value">{{moment-format model.updatedAt "LLL"}}</span>
+      </div>
+      {{/unless}}
+      {{#if model.categoryName}}
+      <div class="metadata-item">
+        <span class="metadata-item-label">Category</span>
+        <span class="metadata-item-value">{{model.categoryName}}</span>
+      </div>
+      {{/if}}
     </div>
-    <div class="metadata-item created-at">
-      <span class="metadata-item-label">Written At</span>
-      <span class="metadata-item-value">{{moment-format model.createdAt "LLL"}}</span>
-    </div>
-    {{#unless (eq model.createdAt model.updatedAt)}}
-    <div class="metadata-item updated-at">
-      <span class="metadata-item-label">Updated At</span>
-      <span class="metadata-item-value">{{moment-format model.updatedAt "LLL"}}</span>
-    </div>
-    {{/unless}}
-    {{#if model.categoryName}}
-    <div class="metadata-item">
-      <span class="metadata-item-label">Category</span>
-      <span class="metadata-item-value">{{model.categoryName}}</span>
-    </div>
-    {{/if}}
-  </div>
+  {{else}}
+    <span
+      onClick={{action (toggle 'newComment.isExpanded' this)}}>
+      Details...
+    </span>
+  {{/if}}
 
 </div>
 

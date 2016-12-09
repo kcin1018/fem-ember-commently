@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Route } = Ember;
+const { Route, RSVP } = Ember;
 
 export default Route.extend({
     queryParams: {
@@ -15,6 +15,21 @@ export default Route.extend({
         } else {
             return this.store.findAll('post');
         }
+
+        // let query = null;
+
+        // if (search) {
+        //     query = this.store.query('post', { search });
+        // } else {
+        //     query = this.store.findAll('post');
+        // }
+
+        // return query.then((posts) => {
+        //     let commentsPromises = posts.map((post) => post.get('comments'));
+        //     return RSVP.all(commentsPromises).then(() => {
+        //         return posts;
+        //     });
+        // });
     },
     actions: {
         _refreshRoute() {
