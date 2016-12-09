@@ -157,6 +157,7 @@ input[type=search] {
     background: #900;
     padding: 2px 4px;
     border-radius: 3px;
+    margin-right: 3px;
 }
 
 .post-tile .draft-indicator:before {}
