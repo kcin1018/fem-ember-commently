@@ -5,5 +5,11 @@ const { Component } = Ember;
 
 export default Component.extend({
     classNames: ['post-full'],
-    newComment: stateFor('post-comment', 'model')
+    newComment: stateFor('post-comment', 'model'),
+
+    actions: {
+        deleteComment(comment) {
+            comment.destroyRecord();
+        }
+    }
 });
