@@ -14,6 +14,9 @@ body {
     float: right;
 }
 
+input[type=search] {
+    color: #333;
+}
 
 /** POSTS-INDEX **/
 
@@ -268,13 +271,38 @@ body {
 
 .post-comment p {
     display: inline-block;
-    width: calc(100% - 40px);
+    width: calc(100% - 150px);
 }
 
 .post-comment .delete-indicator:after {
     content: '⨉';
     float: right;
     color: black;
+}
+.post-comment .delete-indicator:after,
+.post-comment .edit-indicator:after {
+    float: right;
+    width: 30px;
+    text-align: center;
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: black;
+  }
+
+.post-comment .delete-indicator:hover:after,
+.post-comment .edit-indicator:hover:after {
+    background: white;
+}
+
+.post-comment .delete-indicator:after {
+    content: '⨉';
+}
+
+.post-comment .edit-indicator:after {
+    content: '✏️';
 }
 
 .post-comment:hover .delete-indicator:after {

@@ -4,6 +4,9 @@
       <input
         class='posts-search-field'
         type='search'
+        value={{search}}
+        {{!--onInput={{action (mut search) value="target.value"}}--}}
+        onInput={{action 'handleSearch' value="target.value"}}
         placeholder='🔎 Search'/>
     </div>
     <div class="posts-left-content">

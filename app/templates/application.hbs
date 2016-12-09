@@ -11,7 +11,7 @@
       {{#unless (is-authenticated)}}
         {{link-to 'Login' 'auth.login' class='btn'}}
       {{else}}
-        <button class="btn" onclick={{route-action 'logout'}}>Logout {{currentUser}}</button>
+        <button class="btn" onclick={{route-action 'logout'}}>Logout {{currentUser.email}}</button>
       {{/unless}}
     </div>
 </nav>
