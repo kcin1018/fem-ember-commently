@@ -22,5 +22,6 @@ test('it renders', function(assert) {
 
     this.render(hbs `{{post-full model=model saveComment=(action "saveComment")}}`);
     let innerText = this.$().text().replace(/\s+/g, '');
-    assert.ok(innerText.indexOf('WrittenAt') >= 0, 'Written At is present');
+    console.log(innerText);
+    assert.ok(innerText.indexOf('MyPostDetails...') >= 0, 'MyPostDetails... is present');
 });

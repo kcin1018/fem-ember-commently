@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Route, RSVP } = Ember;
+const { Route } = Ember;
 
 export default Route.extend({
     queryParams: {
@@ -15,6 +15,9 @@ export default Route.extend({
         } else {
             return this.store.findAll('post');
         }
+
+        // This is an idea on how to load the comments too but
+        // it has the N+1 query problem.
 
         // let query = null;
 
